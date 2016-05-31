@@ -1,0 +1,66 @@
+﻿@*@model Ob_P3_02.ViewModels.AlojamientosViewModel
+
+@{
+    ViewBag.Title = "Create de Alojamientos";
+ }
+<h2>Create</h2>*@
+
+@*@Html.ValidationSummary()
+@using (Html.BeginForm("Create", "Alojamiento", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(m => m.Nombre)
+        @Html.TextBoxFor(m => m.Nombre)
+        @Html.ValidationMessageFor(m => m.Nombre)
+    </p>
+    <p>*@
+        @*@Html.DropDownListFor(model => model.NombreTipoAloj, Model.TiposAlojamientos, new {@onchange = "Alert(this.value)" })*@
+
+        @*@Html.DisplayNameFor(model => model.Nombre)
+        @Html.DisplayNameFor(model => model.Nombre)
+        @Html.EditorFor(model => model.Nombre)
+        @Html.ValidationMessageFor(model => model.Nombre)*@
+    @*</p>
+    <p>
+        @Html.DropDownListFor(m => m.TipoHabitacion, new List<SelectListItem>
+    {
+                        new SelectListItem() {Text = "Privada", Value="Privada"},
+                        new SelectListItem() {Text = "Compartida", Value="Compartida"},
+    })
+    </p>
+    <p>
+        @Html.DropDownListFor(m => m.TipoBanio, new List<SelectListItem>
+    {*@
+                        @*new SelectListItem() {Text = "Privada", Value="Privada"},
+                        new SelectListItem() {Text = "Compartida", Value="Compartida"},
+    })
+    </p>
+    <p>
+        @Html.LabelFor(m => m.CapacidadXPersona)
+        @Html.TextBoxFor(m => m.CapacidadXPersona)
+        @Html.ValidationMessageFor(m => m.CapacidadXPersona)
+    </p>*@
+    @*<p>
+        @Html.LabelFor(m => m.Ciudad)
+        @Html.TextBoxFor(m => m.Ciudad)
+        @Html.ValidationMessageFor(m => m.Ciudad)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Barrio)
+        @Html.TextBoxFor(m => m.Barrio)
+        @Html.ValidationMessageFor(m => m.Barrio)
+    </p>
+    <p>*@
+        @*@Html.DropDownListFor(model => model.NombreTipoServicio, Model.TiposServicios, new {@onchange = "Alert(this.value)" })*@
+
+        @*@Html.DisplayNameFor(model => model.Nombre)
+        @Html.DisplayNameFor(model => model.Nombre)
+        @Html.EditorFor(model => model.Nombre)
+        @Html.ValidationMessageFor(model => model.Nombre)*@
+    @*</p>
+    <p>
+        <input type="submit" value="Crear" />
+    </p>
+
+}*@
+
