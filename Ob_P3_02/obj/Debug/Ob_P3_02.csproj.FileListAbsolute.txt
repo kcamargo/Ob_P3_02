@@ -161,6 +161,8 @@ C:\Users\Owner\Desktop\Programacion_3\Obligatorio\Ob_P3_02\Ob_P3_02\bin\es\Micro
 C:\Users\Owner\Desktop\Programacion_3\Obligatorio\Ob_P3_02\Ob_P3_02\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\Owner\Desktop\Programacion_3\Obligatorio\Ob_P3_02\Ob_P3_02\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Owner\Desktop\Programacion_3\Obligatorio\Ob_P3_02\Ob_P3_02\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\Owner\Desktop\Programacion_3\Obligatorio\Ob_P3_02\Ob_P3_02\obj\Debug\Ob_P3_02.Migrations.InitialCreate.resources
+C:\Users\Owner\Desktop\Programacion_3\Obligatorio\Ob_P3_02\Ob_P3_02\obj\Debug\Ob_P3_02.csproj.GenerateResource.Cache
 C:\Users\Owner\Desktop\Programacion_3\Obligatorio\Ob_P3_02\Ob_P3_02\obj\Debug\Ob_P3_02.dll
 C:\Users\Owner\Desktop\Programacion_3\Obligatorio\Ob_P3_02\Ob_P3_02\obj\Debug\Ob_P3_02.pdb
 C:\Users\Owner\Desktop\Programacion_3\Obligatorio\Ob_P3_02\Ob_P3_02\obj\Debug\Ob_P3_02.csprojResolveAssemblyReference.cache

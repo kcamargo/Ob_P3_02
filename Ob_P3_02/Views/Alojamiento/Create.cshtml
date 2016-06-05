@@ -1,66 +1,102 @@
-﻿@*@model Ob_P3_02.ViewModels.AlojamientosViewModel
+﻿@model Ob_P3_02.ViewModels.AlojamientosViewModel
 
 @{
     ViewBag.Title = "Create de Alojamientos";
- }
-<h2>Create</h2>*@
+}
+<h2>Create</h2>
 
-@*@Html.ValidationSummary()
-@using (Html.BeginForm("Create", "Alojamiento", FormMethod.Post))
+
+@using (Html.BeginForm("Create", "Alojamiento", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <p>
-        @Html.LabelFor(m => m.Nombre)
-        @Html.TextBoxFor(m => m.Nombre)
-        @Html.ValidationMessageFor(m => m.Nombre)
-    </p>
-    <p>*@
-        @*@Html.DropDownListFor(model => model.NombreTipoAloj, Model.TiposAlojamientos, new {@onchange = "Alert(this.value)" })*@
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
 
-        @*@Html.DisplayNameFor(model => model.Nombre)
-        @Html.DisplayNameFor(model => model.Nombre)
-        @Html.EditorFor(model => model.Nombre)
-        @Html.ValidationMessageFor(model => model.Nombre)*@
-    @*</p>
-    <p>
-        @Html.DropDownListFor(m => m.TipoHabitacion, new List<SelectListItem>
-    {
+    <fieldset>
+        <legend>Crear Alojamiento</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.Nombre)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.UnAlojamiento.Nombre)
+            @Html.ValidationMessageFor(m => m.UnAlojamiento.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.TipoAlojamiento)
+            </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.IdTipoAlojamientoSelect, Model.TiposAlojamientos, new { @onchange = "Alert(this.value)" })
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.TipoHabitacion)
+            </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.UnAlojamiento.TipoHabitacion, new List<SelectListItem>{
                         new SelectListItem() {Text = "Privada", Value="Privada"},
                         new SelectListItem() {Text = "Compartida", Value="Compartida"},
-    })
-    </p>
-    <p>
-        @Html.DropDownListFor(m => m.TipoBanio, new List<SelectListItem>
-    {*@
-                        @*new SelectListItem() {Text = "Privada", Value="Privada"},
+                     })
+
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.TipoBanio)
+            </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.UnAlojamiento.TipoBanio, new List<SelectListItem>{
+                        new SelectListItem() {Text = "Privada", Value="Privada"},
                         new SelectListItem() {Text = "Compartida", Value="Compartida"},
-    })
-    </p>
-    <p>
-        @Html.LabelFor(m => m.CapacidadXPersona)
-        @Html.TextBoxFor(m => m.CapacidadXPersona)
-        @Html.ValidationMessageFor(m => m.CapacidadXPersona)
-    </p>*@
-    @*<p>
-        @Html.LabelFor(m => m.Ciudad)
-        @Html.TextBoxFor(m => m.Ciudad)
-        @Html.ValidationMessageFor(m => m.Ciudad)
-    </p>
-    <p>
-        @Html.LabelFor(m => m.Barrio)
-        @Html.TextBoxFor(m => m.Barrio)
-        @Html.ValidationMessageFor(m => m.Barrio)
-    </p>
-    <p>*@
-        @*@Html.DropDownListFor(model => model.NombreTipoServicio, Model.TiposServicios, new {@onchange = "Alert(this.value)" })*@
+                        })
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.CapacidadXPersona)
+            </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.UnAlojamiento.CapacidadXPersona)
+            @Html.ValidationMessageFor(m => m.UnAlojamiento.CapacidadXPersona)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.Ciudad)
+        </div>
+           <div class="editor-field">
+            @Html.TextBoxFor(m => m.UnAlojamiento.Ciudad)
+            @Html.ValidationMessageFor(m => m.UnAlojamiento.Ciudad)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.Barrio)
+            </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.UnAlojamiento.Barrio)
+            @Html.ValidationMessageFor(m => m.UnAlojamiento.Barrio)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Archivo)
+        </div>
+        <div class="editor-field">
+            <input type="file" name="Archivo" id="Archivo" />
+            @Html.ValidationMessageFor(m => m.Archivo)
 
-        @*@Html.DisplayNameFor(model => model.Nombre)
-        @Html.DisplayNameFor(model => model.Nombre)
-        @Html.EditorFor(model => model.Nombre)
-        @Html.ValidationMessageFor(model => model.Nombre)*@
-    @*</p>
-    <p>
-        <input type="submit" value="Crear" />
-    </p>
+        </div>
+        @*<ul>
+                @foreach (var s in Model.TiposServicios)
+                {
 
-}*@
+                        @Html.LabelFor(model => model.IdServicioSelect)
 
+
+                        @Html.CheckBoxListFor(model => model.IdServicioSelect, Model.TiposServicios)
+                        @Html.ValidationMessageFor(model => model.IdServicioSelect)
+
+                }
+            </ul>*@
+        <div>
+            <input type="submit" value="Crear" />
+        </div>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -21,6 +21,7 @@ namespace Ob_P3_02.Models
         //[Column("tipo_habitacion", TypeName = "Varchar50", Order = 3)]
         public string TipoHabitacion { get; set; }//true privada
 
+        public string NombreArchivoPortada { get; set; }
         //[Required]
         //[Column("tipo_banio", TypeName = "Varchar50", Order = 4)]
         public string TipoBanio { get; set; }//true privado
@@ -39,7 +40,7 @@ namespace Ob_P3_02.Models
 
         public TipoAlojamiento TipoAlojamiento { get; set; }
 
-        public Servicio TipoDeServicios { get; set; }
+        public ICollection<Servicio> TipoDeServicios { get; set; }
 
     }
 }

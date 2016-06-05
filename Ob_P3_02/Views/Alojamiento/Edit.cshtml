@@ -1,1 +1,104 @@
-﻿
+﻿@model Ob_P3_02.ViewModels.AlojamientosViewModel
+
+@{
+    ViewBag.Title = "Editar Alojamientos";
+}
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Edit", "Alojamiento", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend> Editar Alojamiento </legend>
+
+        @Html.HiddenFor(m => m.UnAlojamiento.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.Nombre)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.UnAlojamiento.Nombre)
+            @Html.ValidationMessageFor(m => m.UnAlojamiento.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.TipoAlojamiento)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.UnAlojamiento.TipoAlojamiento.Id, Model.TiposAlojamientos)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.TipoHabitacion)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.UnAlojamiento.TipoHabitacion, new List<SelectListItem>{
+                        new SelectListItem() {Text = "Privada", Value="Privada"},
+                        new SelectListItem() {Text = "Compartida", Value="Compartida"},
+                     })
+
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.TipoBanio)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.UnAlojamiento.TipoBanio, new List<SelectListItem>{
+                        new SelectListItem() {Text = "Privada", Value="Privada"},
+                        new SelectListItem() {Text = "Compartida", Value="Compartida"},
+                        })
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.CapacidadXPersona)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.UnAlojamiento.CapacidadXPersona)
+            @Html.ValidationMessageFor(m => m.UnAlojamiento.CapacidadXPersona)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.Ciudad)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.UnAlojamiento.Ciudad)
+            @Html.ValidationMessageFor(m => m.UnAlojamiento.Ciudad)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UnAlojamiento.Barrio)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.UnAlojamiento.Barrio)
+            @Html.ValidationMessageFor(m => m.UnAlojamiento.Barrio)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Archivo)
+        </div>
+        <div class="editor-field">
+            <input type="file" name="Archivo" id="Archivo" />
+            @Html.ValidationMessageFor(m => m.Archivo)
+
+        </div>
+        @*<ul>
+                @foreach (var s in Model.TiposServicios)
+                {
+
+                        @Html.LabelFor(model => model.IdServicioSelect)
+
+
+                        @Html.CheckBoxListFor(model => model.IdServicioSelect, Model.TiposServicios)
+                        @Html.ValidationMessageFor(model => model.IdServicioSelect)
+
+                }
+            </ul>*@
+        <div>
+            <input type="submit" value="Editar" />
+        </div>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

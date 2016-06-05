@@ -24,11 +24,14 @@ namespace Ob_P3_02.Models
         public DbSet<TipoAlojamiento> TipoAlojamientos { get; set; }
 
         public DbSet<Usuario> Usuarios { get; set; }
-        public BienvenidosUyContext():base("con"){
+
+        static BienvenidosUyContext()
+        {
+            Database.SetInitializer<BienvenidosUyContext>(null);
+        }
+        public BienvenidosUyContext():base("conf"){
 
         }
-
-
 
     }
 }

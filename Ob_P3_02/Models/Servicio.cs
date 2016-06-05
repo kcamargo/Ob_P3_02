@@ -10,17 +10,17 @@ namespace Ob_P3_02.Models
     [Table("Servicio")]
     public class Servicio
     {
-        [Key]
+        //[Key]
         public int Id { get; set; }
 
-        //[Required]
-        //[Column("nombre", TypeName = "varchar50", Order = 2)]
+        //[Required]// este no dio problemas
         public string Nombre { get; set; }
 
-        //[Required]
-        //[Column("descripcion", TypeName = "varchar50", Order = 3)]
+        /*[Required]*/
         //[MaxLength(250)]
         public string Descripcion { get; set; }
+
+        public ICollection<Alojamiento> VariosAlojamientos { get; set; }
 
 
     }
